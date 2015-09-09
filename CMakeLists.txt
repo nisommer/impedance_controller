@@ -5,8 +5,6 @@ project(impedance_controller)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  robotlib
-  std_tools
   cmake_modules
 )
 
@@ -103,8 +101,10 @@ include_directories(
 
 ## Declare a cpp library
 FILE(GLOB theSourceFiles src/*.cpp)
+FILE(GLOB theIncludeFiles include/*.h)
+
  add_library(${PROJECT_NAME}
-   ${theSourceFiles}
+   ${theSourceFiles} ${theIncludeFiles}
  )
 
 
