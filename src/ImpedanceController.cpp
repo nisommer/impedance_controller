@@ -171,7 +171,6 @@ void ImpedanceController::InitChain(KDL::Chain _chain) {
 void ImpedanceController::GetOutput_e(Eigen::Matrix<double, Eigen::Dynamic, 1>& result) {
   if ( result.rows() == e_control_torque.rows() ) result = e_control_torque;
   else {
-    //        cout<<"dimension mismatch when getting output, resizing vector!"<<endl;
     result.resize( e_control_torque.rows() ); // not sure about this one
     result = e_control_torque;
   }
