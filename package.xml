@@ -42,7 +42,6 @@
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>cmake_modules</build_depend>
 
-
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <!-- You can specify that this package is a metapackage here: -->
