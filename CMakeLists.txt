@@ -6,14 +6,14 @@ project(impedance_controller)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   cmake_modules
-orocos_kdl
+#orocos_kdl
 )
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
 find_package(Eigen REQUIRED)
-
+find_package(orocos_kdl REQUIRED) 
 
 #SET(CMAKE_BUILD_TYPE DEBUG)
 
