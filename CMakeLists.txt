@@ -16,6 +16,7 @@ find_package(Eigen REQUIRED)
 find_package(orocos_kdl REQUIRED) 
 
 #SET(CMAKE_BUILD_TYPE DEBUG)
+SET(CMAKE_BUILD_TYPE RELEASE)
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed

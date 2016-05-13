@@ -86,6 +86,11 @@ void ImpedanceController::SetJointSpaceDamping_e(int ind, double damp)
   e_jointSpaceDamping(ind) = damp;
 }
 
+void ImpedanceController::SetJointSpaceDamping_e(double damp)
+{
+  e_jointSpaceDamping.setConstant(damp);
+}
+
 void ImpedanceController::EnableNullspaceControl(bool en)
 {
   bNullspaceControl = en;
@@ -148,12 +153,15 @@ void ImpedanceController::Update_e(const KDL::JntArray _jnts) {
 
   // add Joint space damping
   e_joint_damping_torques = e_jointSpaceDamping.cwiseProduct(e_jnt_pos_dot);
+//  cerr << "e_joint_damping_torques before: /n " << e_joint_damping_torques << endl;
 
   for (int i = 0; i < e_joint_damping_torques.rows(); i++) {
     if (e_joint_damping_torques(i) > 50.0) e_joint_damping_torques(i) = 50.0;
 
-    if (e_joint_damping_torques(i) < 50.0) e_joint_damping_torques(i) = -50.0;
+    if (e_joint_damping_torques(i) < -50.0) e_joint_damping_torques(i) = -50.0;
   }
+//  cerr << "e_joint_damping_torques: /n " << e_joint_damping_torques << endl;
+//  cerr << "e_jnt_pos_dot: /n " << e_jnt_pos_dot << endl;
 
   if (bJointSpaceDamping) e_control_torque -= e_joint_damping_torques;
 

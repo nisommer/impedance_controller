@@ -39,6 +39,7 @@ public:
   void         EnableJointSpaceDamping(bool en);
 
   void         SetJointSpaceDamping_e(Eigen::VectorXd JSDamp);
+  void         SetJointSpaceDamping_e(double JSDamp);
   void         SetJointSpaceDamping_e(int    ind,
                                       double damp);
 
